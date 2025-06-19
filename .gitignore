@@ -1,0 +1,8 @@
+.DS_Store
+.coverage
+backup/
+debank_handler
+debank_handler.txt
+get_APR_via_customized_logic.txt
+index500/
+defillama-data-backup/
