@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-All Weather Protocol is a DeFi portfolio management platform implementing Ray Dalio's All Weather Portfolio strategy. The system consists of four main components:
+Zap Pilot is a general-purpose intent-based execution engine for DeFi operations. The platform enables users to create and manage various vault strategies including Stablecoin Vault, Index500 (S&P500-like index fund), BTC vault, ETH vault, with support for customizable vaults. The system consists of four main components:
 
 1. **Frontend** (`all-weather-frontend/`) - Next.js/React Web3 application
 2. **Backend** (`backend/`) - Node.js/Express API for user management and reporting
@@ -15,10 +15,14 @@ All Weather Protocol is a DeFi portfolio management platform implementing Ray Da
 
 The system follows a microservices architecture with clear separation of concerns:
 
-- **Frontend**: Handles user interactions, Web3 wallet connections, and portfolio visualization
+- **Frontend**: Handles user interactions, Web3 wallet connections, and vault strategy visualization
 - **Backend**: Manages user data, generates reports, sends notifications via Discord/email
-- **Rebalance Engine**: Analyzes portfolios and provides rebalancing recommendations using mathematical models
+- **Rebalance Engine**: Provides intent-based execution and vault rebalancing using mathematical models
 - **Analytics Engine**: Performs backtesting and strategy analysis for index fund approaches
+
+## Intent-Based Execution
+
+Zap Pilot operates on an intent-based execution model where users specify their desired outcomes (intents) rather than specific transaction sequences. The system interprets these intents and executes the optimal path across DeFi protocols.
 
 Each component has its own package.json/pyproject.toml with independent dependencies and can be developed/deployed separately.
 
@@ -53,6 +57,16 @@ flake8            # Linting
 bandit -r .       # Security scanning
 ```
 
+## Vault Strategies
+
+Zap Pilot supports multiple vault types:
+
+- **Stablecoin Vault**: Low-risk yield generation with stablecoins
+- **Index500**: S&P500-like index fund strategy for crypto markets  
+- **BTC Vault**: Bitcoin-focused investment strategy
+- **ETH Vault**: Ethereum-focused investment strategy
+- **Custom Vaults**: User-defined strategies with customizable parameters
+
 ## Key Technologies
 
 - **Frontend**: Next.js 13, React 18, TypeScript, Tailwind CSS, ThirdWeb SDK, Ethers.js, Viem
@@ -62,7 +76,7 @@ bandit -r .       # Security scanning
 
 ## Web3 Integration
 
-The frontend uses ThirdWeb SDK for wallet connections and supports 20+ blockchain networks. Account abstraction is implemented using smart wallets for gasless transactions.
+The frontend uses ThirdWeb SDK for wallet connections and supports 20+ blockchain networks. Account abstraction is implemented using smart wallets for gasless transactions. The intent-based execution engine interprets user intents and routes transactions across optimal DeFi protocols automatically.
 
 ## Performance Considerations
 
